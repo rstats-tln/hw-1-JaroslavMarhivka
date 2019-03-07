@@ -19,35 +19,44 @@ By using *mpg* dataset:
 
 - Color
 ```{r}
-
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = hwy, y = model, color = displ))
+  
 ```
 
 - Size
 ```{r}
-
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = hwy, y = model, size = displ))
 ```
 
 - Shape
 ```{r}
-
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = hwy, y = model, shape = trans))+
+  scale_shape_manual(values = 1:10)
 ```
 
 
 2. What happens if you map the same variable to multiple aesthetics?
 
 ```{r}
-
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = hwy, y = model, color = displ, size = displ))
 ```
 
 
 3. What does the stroke aesthetic do? What shapes does it work with? (Hint: use ?geom_point)
 
 ```{r}
-
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = hwy, y = model, stroke = displ))
 ```
 
 4. What happens if you map an aesthetic to something other than a variable name, like aes(colour = displ < 5)?
 
 ```{r}
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = hwy, y = model, color = displ < 5))
 
 ```
